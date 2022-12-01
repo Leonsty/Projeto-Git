@@ -1,0 +1,57 @@
+<html>
+
+<head>
+
+    <script  type="text/javascript">
+        function mostrarTexto(texto) {
+            document.getElementById("resultado").innerHTML += texto;
+          }
+          
+          function executar(ev) {
+            ev.preventDefault();
+            var resultado = "<table border='3px'>  <tr>";
+            
+           
+            for (var i=1; i<=10; i=i+1) {
+              resultado = resultado + "<td>";
+              for (var j=0; j<=10; j=j+1) {
+                var multiplicacao = i*j;
+                var linha = "" + i + "x" + j + "=" + multiplicacao + "<br>";
+                resultado = resultado + linha;
+              }
+              resultado = resultado + "</td>";
+              if (i % 5 === 0) {
+                resultado = resultado + "<tr></tr>";
+              }
+            }
+            resultado = resultado + "</tr></table>";
+            mostrarTexto(resultado);
+          
+          }
+
+
+
+
+
+    </script>
+
+
+</head>
+<body >
+<style>
+    table{
+        border-color:goldenrod;
+        color: black;
+        padding:auto;
+    }
+</style>
+
+</body>
+<div >
+    <h1>Bem-vindo!!!</h1>
+    <p>Apresentando uma tabela da tabuada.</p>
+  </div>
+  <button onclick="executar(event);">Executar</button>
+  <h1>Tabuada de mutiplicação</h1>
+  <div id="resultado"   style="width:100%; align-items: center ;"  ></div>
+</html>
