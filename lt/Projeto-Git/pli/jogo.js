@@ -59,13 +59,13 @@ const flappyBird = {
     },
 }
 const planodeFundo = {
-    spriteX: 390,
+    spriteX: 390.5,
     spriteY: 0,
-    largura: 276,
+    largura: 275.5,
     altura: 204,
 
     x: 0,
-    y: canvas.height - 204,
+    y: canvas.height - 206,
         desenha() {
         contexto.drawImage(
             sprites,
@@ -74,6 +74,7 @@ const planodeFundo = {
             planodeFundo.x, planodeFundo.y,
             planodeFundo.largura, planodeFundo.altura,
         );
+
         contexto.drawImage(
                 sprites,
                 planodeFundo.spriteX, planodeFundo.spriteY,
@@ -81,10 +82,20 @@ const planodeFundo = {
                 planodeFundo.x + planodeFundo.largura, planodeFundo.y,
                 planodeFundo.largura, planodeFundo.altura,
         )
+        contexto.drawImage(
+            sprites,
+            planodeFundo.spriteX, planodeFundo.spriteY,
+            planodeFundo.largura, planodeFundo.altura,
+            planodeFundo.x + planodeFundo.largura*2, planodeFundo.y,
+            planodeFundo.largura, planodeFundo.altura,
+    )
    },
    atualiza(){
-       planodeFundo.x = chao.x -1;
-       planodeFundo.x = planodeFundo.x % (planodeFundo.largura/2);
+       planodeFundo.x = planodeFundo.x -0.5;
+       planodeFundo.x = planodeFundo.x % (planodeFundo.largura);
+       if(planodeFundo.x==-planodeFundo.largura){
+           planodeFundo.largura == 0
+       }
    }
 }
 const chao = {
@@ -112,8 +123,11 @@ const chao = {
         )
     },
     atualiza(){
-        chao.x = chao.x -1;
+        chao.x = chao.x -2;
         chao.x = chao.x % (chao.largura/2);
+        if(chao.x== chao.largura){
+            chao.largura == 0
+        }
     }
 }
 const inicio = {
